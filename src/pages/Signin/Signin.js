@@ -3,7 +3,7 @@ import React from 'react'
 import { useContext, useState } from 'react'
 
 import './Signin.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Signin = () => {
@@ -46,13 +46,13 @@ const Signin = () => {
           <input type="email" id="email-input" class="form-control" placeholder="abc@gmail.com" required />
         </div>
         <div class="form-group flex-vt">
-          <label for="password-input" class="form-label form-field-required">Password</label>
+          <label htmlFor="password-input" class="form-label form-field-required">Password</label>
           <input type="password" id="password-input" class="form-control" placeholder="enter password" required />
         </div>
         <h5 class="text forgot-pw-text">Forgot Password?</h5>
         <label class="terms-condt-checkbox"> <input type="checkbox" />Remember me</label>
         <button class="btn btn-primary" onClick={signinHandler}>Submit</button>
-        <a href="../signup/signup.html" class="text-link">Create new Account</a>
+        <Link to="/signup" class="text-link">Create new Account</Link>
       </form>
     </>
   )
