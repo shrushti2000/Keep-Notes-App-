@@ -1,0 +1,24 @@
+.sidebar-container{
+    grid-area: sidebar;
+    width: 30rem;
+    height: 100vh;
+   
+}
+
+.sidebar-item{
+    font-size: 3rem;
+    color: var(--secondary-text-color);
+    padding: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sidebar-item:hover{
+    background-color: var(--primary-bg-color);
+}
+
+.links{
+    text-decoration: none;
+}

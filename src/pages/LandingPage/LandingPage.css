@@ -1,0 +1,45 @@
+html{
+    font-size: 62.5%;
+  }
+.hero-img{
+    width: 70rem;
+    height: 70rem;
+}
+
+.hero-text-section{
+    font-size: 3rem;
+    width: 50%;
+}
+
+.hero-text-primary{
+    font-size: 4rem;
+    font-weight: bolder;
+    color: var(--secondary-bg-color);
+}
+
+.btn-primary{
+    background-color: var(--secondary-bg-color);
+}
+.btn-primary:hover{
+    background-color: var(--primary-bg-color);
+    color: var(--secondary-bg-color);
+    border: 1px solid var(--secondary-bg-color);
+
+}
+
+@media only screen and (max-width: 600px) {
+    html{
+        font-size: 50%;
+    }
+    .hero-section{
+        flex-direction: column;
+        width:auto;
+
+    }
+    
+    
+    .hero-text-section{
+        width: 100%;
+        padding: 20px;
+    }
+  }
