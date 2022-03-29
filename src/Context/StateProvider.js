@@ -9,7 +9,8 @@ const StateProvider = ({children}) => {
   const [state,dispatch]=useReducer(reducerFunction,{
     showColorPalette:false,
     showTextEditor:false,
-    labels:["work","college","home"]
+    labels:["work","college","home"],
+    notes:[]
   })
   
   return(
