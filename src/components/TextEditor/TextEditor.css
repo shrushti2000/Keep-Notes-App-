@@ -1,0 +1,52 @@
+.textEditor-container{
+    width: 80rem;
+  height: 25rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+margin: 2rem;
+position: relative;
+}
+.note-title{
+    width: auto;
+    height: 20%;
+    padding: 10px;
+    font-size: 3rem;
+    outline: none;
+    border: none;
+}
+.note-desc{
+    height: 80%;
+    width:auto ;
+    padding: 10px;
+    font-size: 2.5rem;
+    outline: none;
+    border: none;
+}
+.textEditor-footer{
+    height: 20%;
+padding: 10px;
+
+}
+.icons{
+    font-size: 3rem;
+    cursor: pointer;
+    color: var(--secondary-bg-color);
+    margin: 5px;
+}
+.icons:hover{
+    opacity: 0.4;
+}
+.pin-icon{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    font-size: 3rem;
+    color: var(--secondary-bg-color);
+    cursor: pointer;
+}
+.colorpalette-icon{
+    position: relative;
+}
+.labelInput{
+    font-size: 3rem;
+    cursor: pointer;
+}

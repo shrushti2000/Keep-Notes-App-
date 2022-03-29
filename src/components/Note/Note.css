@@ -1,0 +1,19 @@
+.note-container{
+    width: auto;
+   background-color: pink;
+   border-radius: 2rem; 
+   height: auto;
+   padding:10px 20px;
+   position: relative;
+}
+.note-title{
+    font-size: 2rem;
+}
+.note-desc{
+    font-size: 2rem;
+}
+.note-pin-icon{
+    position: absolute;
+    top:5px;
+    right: 5px;
+}
