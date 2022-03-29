@@ -10,26 +10,26 @@ import TextEditor from '../TextEditor/TextEditor'
 import './Homepage.css'
 
 const Homepage = () => {
-  const {token}=useContext(AuthContext)
-  const {state,dispatch}=useContext(StateContext)
+  const { token } = useContext(AuthContext)
+  const { state, dispatch } = useContext(StateContext)
   console.log(state.notes)
   useEffect(() => {
     async function fetchData() {
-      try{
+      try {
         fetch("/api/notes", {
-            method: "GET",
-            
-            headers: {
-                authorization: token,
-                "Content-type": "application/json; charset=UTF-8"
-            }
+          method: "GET",
+
+          headers: {
+            authorization: token,
+            "Content-type": "application/json; charset=UTF-8"
+          }
         })
-            .then(res => res.json())
-            .then(data => dispatch({type:'SET_NOTES',payload:data.notes}))
-            
-       }catch(error){
-           console.log(error)
-       }
+          .then(res => res.json())
+          .then(data => dispatch({ type: 'SET_NOTES', payload: data.notes }))
+
+      } catch (error) {
+        console.log(error)
+      }
     };
     fetchData();
   }, [state.notes])
@@ -38,10 +38,10 @@ const Homepage = () => {
       <div className="main-page-container">
         <Sidebar />
         <div className='main-section-container flex-vt'>
-          <TextEditor />
-    <div className='displayNote-Container flex-hz flex-wrap'>
-    {state.notes.map(noteItem=><Note noteItem={noteItem}/>)}
-    </div>
+          {state.showTextEditor && <TextEditor />}
+          <div className='displayNote-Container flex-hz flex-wrap'>
+            {state.notes.map(noteItem => <Note noteItem={noteItem} />)}
+          </div>
         </div>
       </div>
 

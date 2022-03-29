@@ -1,9 +1,11 @@
 .note-container{
     width: auto;
     min-width: 30rem;
+    max-width: 50rem;
    background-color: pink;
    border-radius: 2rem; 
    height: auto;
+  
    padding:10px 20px;
    position: relative;
    margin: 10px;

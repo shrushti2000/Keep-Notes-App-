@@ -1,13 +1,12 @@
 import axios from 'axios'
 import React from 'react'
 import { useContext, useState } from 'react'
-
 import './Signin.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Signin = () => {
-  const { token, setToken, user, setUser } = useContext(AuthContext)
+  const {  setToken, setUser } = useContext(AuthContext)
 
   const testCredentials = {
     email: "adarshbalika@gmail.com",
