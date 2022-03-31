@@ -1,0 +1,9 @@
+.main-section-container{
+    align-items: center;
+}
+.note-label{
+    background-color: var(--grey);
+    width:fit-content;
+    border-radius: 50px;
+    padding:0px 10px;
+}
