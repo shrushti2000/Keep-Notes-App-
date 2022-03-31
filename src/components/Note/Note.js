@@ -7,10 +7,10 @@ const Note = ({ noteItem }) => {
   return (
     <div className='note-container flex-vt' style={{ backgroundColor: `${noteItem.color}` }}>
       <FontAwesomeIcon className="icons note-pin-icon" icon={faThumbTack}  ></FontAwesomeIcon>
-      <h4 className='note-title'>{noteItem.title}</h4>
-      <h5 className='note-desc'>{noteItem.desc}</h5>
+      <p className='note-item-title'>{noteItem.title}</p>
+      <p className='note-item-desc'>{noteItem.desc}</p>
       <p className='text-sm note-label'>{noteItem.label}</p>
-      <div className='note-container-footer flex-hz jc-sb'>
+      <div className='note-item-container-footer flex-hz jc-sb'>
         <p className='text-sm'>Created at 3/29/2022</p>
         <div className='flex-hz'>
           <FontAwesomeIcon className='icons' icon={faPenToSquare} ></FontAwesomeIcon>

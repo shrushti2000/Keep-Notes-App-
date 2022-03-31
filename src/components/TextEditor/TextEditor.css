@@ -1,6 +1,6 @@
 .textEditor-container {
-  width: 80rem;
-  height: 25rem;
+  width: 70rem;
+  height: 20rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 2rem;
   position: relative;
@@ -26,7 +26,7 @@
   padding: 10px;
 }
 .icons {
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
   color: var(--secondary-bg-color);
   margin: 10px;
@@ -38,7 +38,7 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--secondary-bg-color);
   cursor: pointer;
 }
@@ -46,6 +46,6 @@
   position: relative;
 }
 .labelInput {
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
 }

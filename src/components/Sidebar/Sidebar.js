@@ -22,7 +22,7 @@ const Sidebar = () => {
         <Link className='links' to="/archive"><h4 className='sidebar-item'>Archive</h4></Link>
         <h4 className='sidebar-item'>Labels</h4>
         {state.labels.map(item => <p className='label-item'>{item}</p>)}
-        <span><input placeholder='add new label...' value={newLabel} className='addNewlabel-input' onChange={(e) => setNewLabel(e.target.value)} /><button onClick={addNewLabel} className="btn btn-floating-action"><i class="fa fa-plus"></i></button></span>
+        <span><input placeholder='add new label...' value={newLabel} className='add-new-label-input' onChange={(e) => setNewLabel(e.target.value)} /><button onClick={addNewLabel} className="btn btn-floating-action"><i class="fa fa-plus"></i></button></span>
         <button className='btn btn-primary' onClick={(e) => dispatch({ type: 'SHOW_TEXT_EDITOR', payload: !state.showTextEditor })}>Add a note</button>
       </div>
     </>

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
@@ -12,20 +13,18 @@ import './Homepage.css'
 const Homepage = () => {
   const { token } = useContext(AuthContext)
   const { state, dispatch } = useContext(StateContext)
-  console.log(state.notes)
+
   useEffect(() => {
     async function fetchData() {
       try {
-        fetch("/api/notes", {
-          method: "GET",
+        const res = await axios.get("/api/notes", {
 
           headers: {
             authorization: token,
             "Content-type": "application/json; charset=UTF-8"
           }
         })
-          .then(res => res.json())
-          .then(data => dispatch({ type: 'SET_NOTES', payload: data.notes }))
+        dispatch({ type: 'SET_NOTES', payload: res.data.notes })
 
       } catch (error) {
         console.log(error)
