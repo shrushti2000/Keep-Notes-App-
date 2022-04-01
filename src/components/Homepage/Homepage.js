@@ -14,24 +14,7 @@ const Homepage = () => {
   const { token } = useContext(AuthContext)
   const { state, dispatch } = useContext(StateContext)
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await axios.get("/api/notes", {
-
-          headers: {
-            authorization: token,
-            "Content-type": "application/json; charset=UTF-8"
-          }
-        })
-        dispatch({ type: 'SET_NOTES', payload: res.data.notes })
-
-      } catch (error) {
-        console.log(error)
-      }
-    };
-    fetchData();
-  }, [state.notes])
+ 
   return (
     <>
       <div className="main-page-container">

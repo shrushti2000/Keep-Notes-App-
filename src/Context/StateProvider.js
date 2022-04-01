@@ -10,6 +10,7 @@ const StateProvider = ({ children }) => {
     showTextEditor: false,
     labels: ["work", "college", "home"],
     notes: [],
+    trashedNotes:[]
   })
 
   return (

@@ -30,6 +30,9 @@ const TextEditor = () => {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
+    .then(res=>res.json())
+    .then(data=> dispatch({ type: 'SET_NOTES', payload:data.notes }))
+   
     setTitle('')
     setDesc('')
     setIsPinned(false)

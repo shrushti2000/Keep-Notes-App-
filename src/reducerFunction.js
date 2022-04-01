@@ -5,6 +5,7 @@ const reducerFunction = (state, action) => {
         case 'ADD_LABEL': return { ...state, labels: [...state.labels, action.payload] }
         case 'SET_NOTES': return { ...state, notes: action.payload }
         case 'SHOW_TEXT_EDITOR': return { ...state,showTextEditor:action.payload }
+        case 'SET_TRASHED_NOTES': return { ...state,trashedNotes:[...state.trashedNotes,action.payload ]}
         default: return state
     }
 }
