@@ -24,6 +24,20 @@ const Note = ({ noteItem }) => {
     }
   }
 
+  const deleteArchiveNoteHandler = async () => {
+    try {
+      const res = await axios.delete(`/api/archives/delete/${noteItem._id}`, {
+        headers: {
+          authorization: token,
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+     dispatch({type:'SET_ARCHIVED_NOTES',payload:res.data.archives})
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const archiveNoteHandler=async()=>{
     try{
       fetch(`/api/notes/archives/${noteItem._id}`, {
@@ -70,6 +84,8 @@ const Note = ({ noteItem }) => {
         <div className='flex-hz'>
           {state.archivedNotes.includes(noteItem)? <>
             <FontAwesomeIcon className='icons' icon={faTrashCanArrowUp} onClick={restoreNoteHandler}></FontAwesomeIcon>
+            <FontAwesomeIcon className='icons' icon={faTrash} onClick={deleteArchiveNoteHandler}></FontAwesomeIcon>
+    
     </>:<>
           <FontAwesomeIcon className='icons' icon={faPenToSquare} ></FontAwesomeIcon>
             <FontAwesomeIcon className='icons' icon={faBoxArchive} onClick={archiveNoteHandler}></FontAwesomeIcon>
