@@ -1,7 +1,6 @@
 import { faBoxArchive, faPenToSquare, faThumbTack, faTrash, faTrashCanArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import { Action } from 'history'
 import React from 'react'
 import { useContext } from 'react'
 import { AuthContext } from '../../Context/AuthProvider'
@@ -67,7 +66,7 @@ const Note = ({ noteItem }) => {
       <p className='note-item-desc'>{noteItem.desc}</p>
       <p className='text-sm note-label'>{noteItem.label}</p>
       <div className='note-item-container-footer flex-hz jc-sb'>
-        <p className='text-sm'>Created at 3/29/2022</p>
+        <p className='text-sm'>Created at {noteItem.date}</p>
         <div className='flex-hz'>
           {state.archivedNotes.includes(noteItem)? <>
             <FontAwesomeIcon className='icons' icon={faTrashCanArrowUp} onClick={restoreNoteHandler}></FontAwesomeIcon>
