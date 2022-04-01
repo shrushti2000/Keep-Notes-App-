@@ -24,6 +24,41 @@ const Note = ({ noteItem }) => {
       console.log(error)
     }
   }
+
+  const archiveNoteHandler=async()=>{
+    try{
+      fetch(`/api/notes/archives/${noteItem._id}`, {
+        method: "POST",
+        body: JSON.stringify({ note: noteItem }),
+        headers: {
+          "authorization": token,
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(res=>res.json())
+      .then(data=> (dispatch({type:'SET_NOTES',payload:data.notes}),dispatch({type:'SET_ARCHIVED_NOTES',payload:data.archives})))
+    }catch(error){
+      console.log(error)
+    }
+   
+  }
+
+  const restoreNoteHandler=()=>{
+    try{
+      fetch(`/api/archives/restore/${noteItem._id}`, {
+        method: "POST",
+        body:{},
+        headers: {
+          "authorization": token,
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(res=>res.json())
+      .then(data=> (dispatch({type:'SET_NOTES',payload:data.notes}),dispatch({type:'SET_ARCHIVED_NOTES',payload:data.archives})))
+    }catch(error){
+      console.log(error)
+    }
+  }
  
   return (
     <div className='note-container flex-vt' style={{ backgroundColor: `${noteItem.color}` }}>
@@ -34,10 +69,14 @@ const Note = ({ noteItem }) => {
       <div className='note-item-container-footer flex-hz jc-sb'>
         <p className='text-sm'>Created at 3/29/2022</p>
         <div className='flex-hz'>
-            <FontAwesomeIcon className='icons' icon={faPenToSquare} ></FontAwesomeIcon>
-            <FontAwesomeIcon className='icons' icon={faBoxArchive} ></FontAwesomeIcon>
+          {state.archivedNotes.includes(noteItem)? <>
+            <FontAwesomeIcon className='icons' icon={faTrashCanArrowUp} onClick={restoreNoteHandler}></FontAwesomeIcon>
+    </>:<>
+          <FontAwesomeIcon className='icons' icon={faPenToSquare} ></FontAwesomeIcon>
+            <FontAwesomeIcon className='icons' icon={faBoxArchive} onClick={archiveNoteHandler}></FontAwesomeIcon>
             <FontAwesomeIcon className='icons' icon={faTrash} onClick={deleteNoteHandler}></FontAwesomeIcon>
-        </div>
+    
+          </>}    </div>
       </div>
     </div>
   )
