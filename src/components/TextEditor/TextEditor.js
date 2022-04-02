@@ -18,8 +18,16 @@ const TextEditor = () => {
   const [color, setColor] = useState('')
   const [isPinned, setIsPinned] = useState(false)
   const [label, setLabel] = useState('')
+  const date=getTodaysdate()
+  function getTodaysdate(){
+    const date=new Date();
+    const day=date.getDate();
+    const month=date.getMonth();
+    const year=date.getFullYear();
+    return `${day}/${month}/${year}`
+  }
   const noteObj = {
-    title, desc, color, isPinned, label
+    title, desc, color, isPinned, label,date
   }
   const submitHandler = () => {
     fetch("/api/notes", {
@@ -30,6 +38,9 @@ const TextEditor = () => {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
+    .then(res=>res.json())
+    .then(data=> dispatch({ type: 'SET_NOTES', payload:data.notes }))
+   
     setTitle('')
     setDesc('')
     setIsPinned(false)
@@ -50,7 +61,6 @@ const TextEditor = () => {
           <div className='flex-hz'>
             <FontAwesomeIcon icon={faPalette} className="icons colorpalette-icon" onClick={(e) => dispatch({ type: "SHOW_COLOR_PALETTE", payload: !state.showColorPalette })} ></FontAwesomeIcon>
             {state.showColorPalette && <ColorPicker setColor={setColor} />}
-            <FontAwesomeIcon className='icons' icon={faBoxArchive} ></FontAwesomeIcon>
             <p className='text-md icons' onClick={submitHandler}>Save</p>
           </div>
         </div>
