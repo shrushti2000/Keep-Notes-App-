@@ -61,7 +61,6 @@ const TextEditor = () => {
           <div className='flex-hz'>
             <FontAwesomeIcon icon={faPalette} className="icons colorpalette-icon" onClick={(e) => dispatch({ type: "SHOW_COLOR_PALETTE", payload: !state.showColorPalette })} ></FontAwesomeIcon>
             {state.showColorPalette && <ColorPicker setColor={setColor} />}
-            <FontAwesomeIcon className='icons' icon={faBoxArchive} ></FontAwesomeIcon>
             <p className='text-md icons' onClick={submitHandler}>Save</p>
           </div>
         </div>
