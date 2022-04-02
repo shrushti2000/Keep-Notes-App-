@@ -6,23 +6,25 @@ import { makeServer } from "./server";
 import AuthProvider from "./Context/AuthProvider";
 import { BrowserRouter } from "react-router-dom";
 import StateProvider from "./Context/StateProvider";
+import ThemeContextProvider from "./Context/ThemeContextProvider";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
- <StateProvider>
-    <AuthProvider>
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
-  </AuthProvider>
- </StateProvider>
-   
- 
-  
+  <ThemeContextProvider>
+    <StateProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
+      </AuthProvider>
+    </StateProvider>
+  </ThemeContextProvider>
+
+
   ,
   document.getElementById("root")
 );

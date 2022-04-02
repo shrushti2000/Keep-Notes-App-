@@ -11,6 +11,10 @@ body{
   --secondary-bg-color:#694E4E;
   --primary-text-color:#2C3333;
   --white:#ffffff;
+  --dark-1:#15202B;
+  --dark-2:#192734;
+  --grey-1:#889a96;
+  
 }
 .flex-vt{
   display: flex;

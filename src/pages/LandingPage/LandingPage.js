@@ -2,11 +2,14 @@ import React from 'react'
 import './LandingPage.css'
 import heroImg from '../../assets/hero-img.png'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../../Context/ThemeContextProvider'
+import { useContext } from 'react'
 
 const LandingPage = () => {
+  const {theme}=useContext(ThemeContext)
   return (
     <>
-      <div className='hero-section flex-hz jc-sa'>
+      <div className={theme==="light"?'hero-section flex-hz jc-sa':'hero-section-dark flex-hz jc-sa'}>
         <img src={heroImg} className="hero-img" />
         <div className='hero-text-section'>
           <p class="hero-text-primary">Meet modern Note Taking app</p>
