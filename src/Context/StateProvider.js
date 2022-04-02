@@ -14,7 +14,10 @@ const StateProvider = ({ children }) => {
     trashedNotes:[],
     archivedNotes:[],
     showModal:false,
-    noteToBeChanged:{}
+    noteToBeChanged:{},
+    filterBy:{
+     labels:[]
+   }
   })
 
   return (

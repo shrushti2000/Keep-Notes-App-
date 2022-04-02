@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { useState } from 'react'
 import { AuthContext } from '../../Context/AuthProvider'
 import { StateContext } from '../../Context/StateProvider'
+import { getfilteredData } from '../../reducerFunction'
 import Modal from '../Modal/Modal'
 import Note from '../Note/Note'
 import Sidebar from '../Sidebar/Sidebar'
@@ -15,20 +16,24 @@ import './Homepage.css'
 const Homepage = () => {
   const { token } = useContext(AuthContext)
   const { state, dispatch } = useContext(StateContext)
-  
+const filteredData=getfilteredData(state,state.notes)
+console.log(filteredData)
   return (
     <>
       <div className="main-page-container">
         <Sidebar />
         <div className='main-section-container flex-vt'>
           {state.showTextEditor && <TextEditor />}
-          
+          <h5>Pinned</h5>
           <div className='displayNote-Container flex-hz flex-wrap'>
-           {state.notes.map(noteItem=><Note noteItem={noteItem}/>)}
+            {filteredData.map(note => note.isPinned && <Note noteItem={note} />)}
           </div>
-         
+          <h5>Others</h5>
+          <div className='displayNote-Container flex-hz flex-wrap'>
+            {filteredData.map(note => !note.isPinned && <Note noteItem={note} />)}
+          </div>
         </div>
-      {state.showModal && <Modal/>}
+        {state.showModal && <Modal />}
       </div>
 
     </>
