@@ -7,11 +7,14 @@ export const StateContext = createContext()
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunction, {
     showColorPalette: false,
+    showModalColorPalette:false,
     showTextEditor: false,
     labels: ["work", "college", "home"],
     notes: [],
     trashedNotes:[],
-    archivedNotes:[]
+    archivedNotes:[],
+    showModal:false,
+    noteToBeChanged:{}
   })
 
   return (

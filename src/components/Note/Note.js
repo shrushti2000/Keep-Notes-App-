@@ -56,6 +56,11 @@ const Note = ({ noteItem }) => {
    
   }
 
+  const editNoteHandler=()=>{
+    dispatch({type:'OPEN_MODAL',payload:!state.showModal})
+    dispatch({type:'SET_NOTE_TO_BE_CHANGED',payload:noteItem})
+  }
+
   const restoreNoteHandler=()=>{
     try{
       fetch(`/api/archives/restore/${noteItem._id}`, {
@@ -75,7 +80,7 @@ const Note = ({ noteItem }) => {
  
   return (
     <div className='note-container flex-vt' style={{ backgroundColor: `${noteItem.color}` }}>
-      <FontAwesomeIcon className="icons note-pin-icon" icon={faThumbTack}  ></FontAwesomeIcon>
+      <FontAwesomeIcon className="icons note-pin-icon" icon={faThumbTack} style={{ color: noteItem.isPinned? 'black': '#694E4E'}}  ></FontAwesomeIcon>
       <p className='note-item-title'>{noteItem.title}</p>
       <p className='note-item-desc'>{noteItem.desc}</p>
       <p className='text-sm note-label'>{noteItem.label}</p>
@@ -87,7 +92,7 @@ const Note = ({ noteItem }) => {
             <FontAwesomeIcon className='icons' icon={faTrash} onClick={deleteArchiveNoteHandler}></FontAwesomeIcon>
     
     </>:<>
-          <FontAwesomeIcon className='icons' icon={faPenToSquare} ></FontAwesomeIcon>
+          <FontAwesomeIcon className='icons' icon={faPenToSquare} onClick={editNoteHandler} ></FontAwesomeIcon>
             <FontAwesomeIcon className='icons' icon={faBoxArchive} onClick={archiveNoteHandler}></FontAwesomeIcon>
             <FontAwesomeIcon className='icons' icon={faTrash} onClick={deleteNoteHandler}></FontAwesomeIcon>
     
