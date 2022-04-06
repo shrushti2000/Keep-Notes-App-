@@ -17,7 +17,8 @@ const StateProvider = ({ children }) => {
     noteToBeChanged:{},
     filterBy:{
      labels:[]
-   }
+   },
+   showtoast:false,
   })
 
   return (

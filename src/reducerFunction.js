@@ -11,7 +11,8 @@ const reducerFunction = (state, action) => {
        case 'SET_NOTE_TO_BE_CHANGED':return{...state,noteToBeChanged:action.payload}
 case 'SHOW_MODAL_COLOR_PALETTE': return { ...state, showModalColorPalette: action.payload }
 case 'SET_LABEL_FILTER': return (!state.filterBy.labels.includes(action.payload)) ?   { ...state, filterBy:{...state.filterBy,labels:state.filterBy.labels.concat(action.payload)}} : {...state,filterBy:{...state.filterBy,labels:state.filterBy.labels.filter(item=>item!==action.payload)}}
-case 'CLEAR_LABEL_FILTER':return {...state,filterBy:{...state.filterBy,labels:[]}}        
+case 'CLEAR_LABEL_FILTER':return {...state,filterBy:{...state.filterBy,labels:[]}}  
+case 'SET_SHOW_TOAST':return {...state,showtoast:action.payload}      
 default: return state
     }
 }
