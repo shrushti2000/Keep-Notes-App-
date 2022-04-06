@@ -10,6 +10,10 @@ html{
     font-size: 3rem;
     width: 50%;
 }
+.hero-section-dark{
+    background-color: var(--dark-1);
+    color: var(--white);
+}
 
 .hero-text-primary{
     font-size: 4rem;

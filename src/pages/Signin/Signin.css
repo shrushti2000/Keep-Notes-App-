@@ -1,3 +1,15 @@
+.page-container{
+    background-color: var(--white);
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+.page-container-dark{
+    background-color: var(--dark-1);
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
 .forgot-pw-text{
     color: var(--info-color);
     margin: 1rem;
@@ -6,15 +18,26 @@
 
 ::placeholder{
     color: var(--light-grey);
-}.form-container{
+}
+.form-container{
     width: 50rem;
-    margin: 2rem auto;
+    margin: auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
    
+}
+.form-container-dark{
+    width: 50rem;
+    margin:  auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+ background-color: var(--grey-1); 
 }
 
 .terms-condt-checkbox{

@@ -5,6 +5,18 @@
   margin: 2rem;
   position: relative;
 }
+.textEditor-container-dark{
+background-color: var(--grey-1);
+width: 70rem;
+  height: 20rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 2rem;
+  position: relative;
+  margin:20px auto;
+}
+.input-dark{
+  background-color: var(--grey-1);
+}
 .note-title {
   width: auto;
   height: 20%;

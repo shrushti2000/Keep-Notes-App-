@@ -9,8 +9,10 @@ import { StateContext } from '../../Context/StateProvider'
 import ColorPicker from '../ColorPicker/ColorPicker'
 import { useContext } from 'react'
 import { AuthContext } from '../../Context/AuthProvider'
+import { ThemeContext } from '../../Context/ThemeContextProvider'
 
 const TextEditor = () => {
+  const {theme}=useContext(ThemeContext)
   const { state, dispatch } = useContext(StateContext)
   const { token } = useContext(AuthContext)
   const [title, setTitle] = useState('');
@@ -48,10 +50,10 @@ const TextEditor = () => {
   }
   return (
     <>
-      <div className='textEditor-container flex-vt'>
+      <div className={theme==="light"?'textEditor-container flex-vt':'textEditor-container-dark flex-vt'}>
         <FontAwesomeIcon className="icons pin-icon" icon={faThumbTack} onClick={(e) => setIsPinned(!isPinned)} ></FontAwesomeIcon>
-        <input value={title} type="text" placeholder='title' className='note-title' onChange={(e) => setTitle(e.target.value)} />
-        <textarea value={desc} className='note-desc' placeholder='enter note...' onChange={(e) => setDesc(e.target.value)}></textarea>
+        <input className={theme==="dark"?'note-title input-dark':'note-title'} value={title} type="text" placeholder='title'  onChange={(e) => setTitle(e.target.value)} />
+        <textarea className={theme==="dark" ? 'note-desc input-dark': 'note-desc'} value={desc} placeholder='enter note...' onChange={(e) => setDesc(e.target.value)}></textarea>
         <div className='textEditor-footer flex-hz jc-sb'>
           <div> <select value={label} className="labelInput" onChange={(e) => setLabel(e.target.value)}>
             {state.labels.map(opt => {

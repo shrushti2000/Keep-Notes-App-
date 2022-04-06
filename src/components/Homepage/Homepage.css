@@ -1,6 +1,10 @@
 .main-section-container{
     align-items: center;
 }
+.main-section-container-dark{
+    background-color: var(--dark-1);
+    color: var(--white);
+}
 .note-label{
     background-color: var(--grey);
     width:fit-content;
