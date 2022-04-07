@@ -21,6 +21,14 @@ function App() {
         <Route exact path='/trash' element={<Trash />} />
         <Route exact path='/archive' element={<Archive />} />
         <Route exact path='/labelfilter' element={<LabelFilter />} />
+        <Route
+          path="*"
+          element={
+            <>
+              <h1>Sorry! No page found</h1>
+            </>
+          }
+        />
       </Routes>
     </>
   );
