@@ -6,10 +6,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Toast from '../../components/Toast/Toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import { StateContext } from '../../Context/StateProvider';
+import  { ThemeContext } from '../../Context/ThemeContextProvider';
 
 const Signin = () => {
     const { token, setToken, user, setUser } = useContext(AuthContext)
     const { state, dispatch } = useContext(StateContext)
+    const { theme } = useContext(ThemeContext)
     console.log(state.showtoast)
     const [email, setEmail] = useState(' ');
     const [password, setPassword] = useState(' ')
@@ -76,7 +78,8 @@ const Signin = () => {
     return (
         <>
             {state.showtoast === true && <Toast msg={msg} />}
-            <form class="form-container">
+            <div className={theme==="light" ? 'page-container':'page-container-dark'}>
+            <form class={theme==="light" ? "form-container":"form-container-dark"}>
                 <h5 class="sub-heading">Signin</h5>
                 <div class="form-group flex-vt">
                     <label for="email-input" class="form-label form-field-required" >Email</label>
@@ -91,6 +94,8 @@ const Signin = () => {
                 <button class="btn btn-primary" onClick={testCredentialsSigninHandler}>Signin with Test Credentials</button>
                 <Link to="/signup" className="links text-link">Create new Account</Link>
             </form>
+            </div>
+           
         </>
     )
 }

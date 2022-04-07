@@ -10,6 +10,7 @@ import ColorPicker from '../ColorPicker/ColorPicker'
 import { useContext } from 'react'
 import { AuthContext } from '../../Context/AuthProvider'
 import { ThemeContext } from '../../Context/ThemeContextProvider'
+import Toast from '../Toast/Toast'
 
 const TextEditor = () => {
   const {theme}=useContext(ThemeContext)
@@ -20,6 +21,7 @@ const TextEditor = () => {
   const [color, setColor] = useState('')
   const [isPinned, setIsPinned] = useState(false)
   const [label, setLabel] = useState('')
+  const [msg,setMsg]=useState('')
   const date=getTodaysdate()
   function getTodaysdate(){
     const date=new Date();
@@ -32,24 +34,34 @@ const TextEditor = () => {
     title, desc, color, isPinned, label,date
   }
   const submitHandler = () => {
-    fetch("/api/notes", {
-      method: "POST",
-      body: JSON.stringify({ note: noteObj }),
-      headers: {
-        "authorization": token,
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
-    .then(res=>res.json())
-    .then(data=> dispatch({ type: 'SET_NOTES', payload:data.notes }))
-   
-    setTitle('')
-    setDesc('')
-    setIsPinned(false)
-    setColor('')
+   if(title!=='' && desc!=='' && color!=='' && label!==''){
+     try{
+      fetch("/api/notes", {
+        method: "POST",
+        body: JSON.stringify({ note: noteObj }),
+        headers: {
+          "authorization": token,
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(res=>res.json())
+      .then(data=> dispatch({ type: 'SET_NOTES', payload:data.notes }))
+     
+      setTitle('')
+      setDesc('')
+      setIsPinned(false)
+      setColor('')
+     }catch(error){
+       console.log('error')
+     }
+   }else{
+    dispatch({ type: 'SET_SHOW_TOAST', payload: !state.showtoast })
+    setMsg("Please fill all the fields!")
+   }
   }
   return (
     <>
+      {state.showtoast === true && <Toast msg={msg} />}
       <div className={theme==="light"?'textEditor-container flex-vt':'textEditor-container-dark flex-vt'}>
         <FontAwesomeIcon className="icons pin-icon" icon={faThumbTack} onClick={(e) => setIsPinned(!isPinned)} ></FontAwesomeIcon>
         <input className={theme==="dark"?'note-title input-dark':'note-title'} value={title} type="text" placeholder='title'  onChange={(e) => setTitle(e.target.value)} />

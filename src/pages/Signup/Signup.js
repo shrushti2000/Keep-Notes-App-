@@ -6,8 +6,10 @@ import './Signup.css'
 import Toast from '../../components/Toast/Toast'
 import { AuthContext } from '../../Context/AuthProvider'
 import { StateContext } from '../../Context/StateProvider'
+import { ThemeContext } from '../../Context/ThemeContextProvider'
 
 const Signup = () => {
+  const { theme } = useContext(ThemeContext)
   const { token, setToken, user, setUser } = useContext(AuthContext)
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('')
@@ -49,8 +51,9 @@ const Signup = () => {
   return (
     <>
       {state.showtoast === true && <Toast msg={msg} />}
-      <form class="form-container">
-        <h5 class="sub-heading">Signup</h5>
+      <div className={theme==="light" ? 'page-container':'page-container-dark'}>
+            <form class={theme==="light" ? "form-container":"form-container-dark"}>
+               <h5 class="sub-heading">Signup</h5>
         <div class="form-group flex-vt">
           <label for="name-input" class="form-label form-field-required">Name</label>
           <input type="text" class="form-control" placeholder="enter name" required onChange={(e) => setfirstName(e.target.value)} />
@@ -71,6 +74,7 @@ const Signup = () => {
         <button class="btn btn-primary" onClick={signupHandler}>Submit</button>
         <Link to="/signin" className="links text-link">Already have an account?</Link>
       </form>
+      </div>
     </>
   )
 }
