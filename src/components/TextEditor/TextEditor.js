@@ -22,16 +22,12 @@ const TextEditor = () => {
   const [isPinned, setIsPinned] = useState(false)
   const [label, setLabel] = useState('')
   const [msg, setMsg] = useState('')
-  const date = getTodaysdate()
-  function getTodaysdate() {
-    const date = new Date();
-    const day = date.getDate();
-    const month = date.getMonth()+1;
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`
-  }
+  const currentTime=new Date().toLocaleTimeString();
+  const date = new Date().toLocaleDateString();
+  const time=new Date().getTime()
+  
   const noteObj = {
-    title, desc, color, isPinned, label, date
+    title, desc, color, isPinned, label, date,time,currentTime
   }
   const submitHandler = () => {
     if (title !== '' && desc !== '' && color !== '' && label !== '') {

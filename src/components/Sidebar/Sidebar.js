@@ -22,6 +22,10 @@ const Sidebar = () => {
         <Link className='links' to="/homepage"><h4 className={theme == "light" ? 'sidebar-item' : 'sidebar-item-dark'}>Home</h4></Link>
         <Link className='links' to='/trash'><h4 className={theme == "light" ? 'sidebar-item' : 'sidebar-item-dark'}>Trash</h4></Link>
         <Link className='links' to="/archive"><h4 className={theme == "light" ? 'sidebar-item' : 'sidebar-item-dark'}>Archive</h4></Link>
+    <div className='flex-hz jc-sb'>
+    <span> <input type="radio"  checked={state.sortByTime} value={state.sortByTime} onChange={()=>dispatch({type:'SORT_BY_TIME',payload:!state.sortByTime})}/> <label className={theme == "light" ? 'sort-input' : 'sort-input-dark'}>Sort by time</label></span>
+    <p className='text-md clear-btn'  onClick={(e)=>dispatch({type:'CLEAR'})}>clear</p>
+    </div>
         <Link className='links' to="/labelfilter" ><h4 className={theme == "light" ? 'sidebar-item' : 'sidebar-item-dark'}>Labels</h4></Link>
         {state.labels.map(item => <label className={theme === "light" ? 'label-item' : 'label-item-dark'}><input type="checkbox" checked={state.filterBy.labels.includes(item)} onClick={(e) => dispatch({ type: 'SET_LABEL_FILTER', payload: item })} />{item}</label>)}
         <label className={theme === "light" ? 'label-item' : 'label-item-dark'}><input type="checkbox" className='label-item' onChange={(e) => dispatch({ type: 'CLEAR_LABEL_FILTER' })} checked={state.filterBy.labels.length===0 && state.notes.length!==0} />all</label>

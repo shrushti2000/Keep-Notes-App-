@@ -74,3 +74,17 @@
 .btn-floating-action {
     background-color: var(--secondary-bg-color);
 }
+
+.sort-input{
+    cursor:"pointer";
+    font-size: 2rem;
+}
+.sort-input-dark{
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.clear-btn:hover{
+    cursor: pointer;
+    color: var(--secondary-bg-color);
+}

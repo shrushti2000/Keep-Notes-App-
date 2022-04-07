@@ -85,7 +85,10 @@ const Note = ({ noteItem }) => {
       <p className='note-item-desc'>{noteItem.desc}</p>
       <p className='text-sm note-label'>{noteItem.label}</p>
       <div className='note-item-container-footer flex-hz jc-sb'>
+        <div className='flex-vt'>
         <p className='text-sm'>Created at {noteItem.date}</p>
+        <p className='text-sm'>  {noteItem.currentTime}</p>
+        </div>
         <div className='flex-hz'>
           {state.archivedNotes.includes(noteItem) ? <>
             <FontAwesomeIcon className='icons' icon={faTrashCanArrowUp} onClick={restoreNoteHandler}></FontAwesomeIcon>

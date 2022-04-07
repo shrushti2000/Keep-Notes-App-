@@ -19,6 +19,7 @@ const StateProvider = ({ children }) => {
       labels: []
     },
     showtoast: false,
+    sortByTime:false
   })
 
   return (

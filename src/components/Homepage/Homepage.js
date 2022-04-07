@@ -16,7 +16,18 @@ const Homepage = () => {
   const { token } = useContext(AuthContext)
   const { theme } = useContext(ThemeContext)
   const { state, dispatch } = useContext(StateContext)
-  const filteredData = getfilteredData(state, state.notes)
+  const getSortedNotes=(notes,sortByTime)=>{
+    if(sortByTime===true){
+      return [...notes].sort(function(a,b){
+        return new Date(b['time']) - new Date(a['time']);
+      })
+    }else{
+      return notes
+    }
+    
+  }
+  const sortedData=getSortedNotes(state.notes,state.sortByTime)
+  const filteredData = getfilteredData(state, sortedData)
   console.log(filteredData)
   return (
     <>

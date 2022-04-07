@@ -13,6 +13,8 @@ const reducerFunction = (state, action) => {
         case 'SET_LABEL_FILTER': return (!state.filterBy.labels.includes(action.payload)) ? { ...state, filterBy: { ...state.filterBy, labels: state.filterBy.labels.concat(action.payload) } } : { ...state, filterBy: { ...state.filterBy, labels: state.filterBy.labels.filter(item => item !== action.payload) } }
         case 'CLEAR_LABEL_FILTER': return { ...state, filterBy: { ...state.filterBy, labels: [] } }
         case 'SET_SHOW_TOAST': return { ...state, showtoast: action.payload }
+        case 'SORT_BY_TIME':return{...state,sortByTime:!state.sortByTime}
+        case 'CLEAR':return {...state,sortByTime:false}
         default: return state
     }
 }
