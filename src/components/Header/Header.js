@@ -21,13 +21,15 @@ const Header = () => {
   return (
     <div className={theme == "light" ? "navigation-container flex-hz" : "navigation-container-dark flex-hz"}>
       <div class="navigation-item-1">
-        <h5 class="lib-name-1">Keep <span class="lib-name-2">App</span></h5>
+        <h5 class={theme==="light"?'lib-name-1':'lib-name-1-dark'}>Keep <span class={theme==="light"?'lib-name-2':'lib-name-2-dark'}>App</span></h5>
+
       </div>
       <i class="fa fa-bars"></i>
 
       {token !== undefined ? <>
         <div class="navigation-item-3 flex-hz">
           <button class="btn btn-primary" onClick={handleLogout}>Logout</button>
+          {theme === "light" ? <FontAwesomeIcon className='icons' icon={faMoon} onClick={ToggleMode}></FontAwesomeIcon> : <FontAwesomeIcon className='icons' icon={faSun} onClick={ToggleMode}></FontAwesomeIcon>}
         </div>
       </> : <>
         <div class="navigation-item-3 flex-hz">

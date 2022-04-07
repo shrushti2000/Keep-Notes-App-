@@ -6,20 +6,20 @@ import { Link, useNavigate } from 'react-router-dom';
 import Toast from '../../components/Toast/Toast';
 import { AuthContext } from '../../Context/AuthProvider';
 import { StateContext } from '../../Context/StateProvider';
-import  { ThemeContext } from '../../Context/ThemeContextProvider';
+import { ThemeContext } from '../../Context/ThemeContextProvider';
 
 const Signin = () => {
-    const { token, setToken, user, setUser } = useContext(AuthContext)
+    const {  setToken, setUser } = useContext(AuthContext)
     const { state, dispatch } = useContext(StateContext)
     const { theme } = useContext(ThemeContext)
     console.log(state.showtoast)
     const [email, setEmail] = useState(' ');
     const [password, setPassword] = useState(' ')
     const [msg, setMsg] = useState('')
-    
+
     const testCredentials = {
-      email: "adarshbalika@gmail.com",
-      password: "adarshBalika123",
+        email: "adarshbalika@gmail.com",
+        password: "adarshBalika123",
     }
     let navigate = useNavigate();
     const testCredentialsSigninHandler = async (e) => {
@@ -78,24 +78,24 @@ const Signin = () => {
     return (
         <>
             {state.showtoast === true && <Toast msg={msg} />}
-            <div className={theme==="light" ? 'page-container':'page-container-dark'}>
-            <form class={theme==="light" ? "form-container":"form-container-dark"}>
-                <h5 class="sub-heading">Signin</h5>
-                <div class="form-group flex-vt">
-                    <label for="email-input" class="form-label form-field-required" >Email</label>
-                    <input type="email" id="email-input" class="form-control" placeholder="abc@gmail.com" required onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div class="form-group flex-vt">
-                    <label for="password-input" class="form-label form-field-required" >Password</label>
-                    <input type="password" id="password-input" class="form-control" placeholder="enter password" required onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                <h5 class="text forgot-pw-text">Forgot Password?</h5>
-                <button class="btn btn-primary" onClick={signinHandler}>Signin</button>
-                <button class="btn btn-primary" onClick={testCredentialsSigninHandler}>Signin with Test Credentials</button>
-                <Link to="/signup" className="links text-link">Create new Account</Link>
-            </form>
+            <div className={theme === "light" ? 'page-container' : 'page-container-dark'}>
+                <form class={theme === "light" ? "form-container" : "form-container-dark"}>
+                    <h5 class="sub-heading">Signin</h5>
+                    <div class="form-group flex-vt">
+                        <label for="email-input" class="form-label form-field-required" >Email</label>
+                        <input type="email" id="email-input" class="form-control" placeholder="abc@gmail.com" required onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                    <div class="form-group flex-vt">
+                        <label for="password-input" class="form-label form-field-required" >Password</label>
+                        <input type="password" id="password-input" class="form-control" placeholder="enter password" required onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+                    <h5 class="text forgot-pw-text">Forgot Password?</h5>
+                    <button class="btn btn-primary" onClick={signinHandler}>Signin</button>
+                    <button class="btn btn-primary" onClick={testCredentialsSigninHandler}>Signin with Test Credentials</button>
+                    <Link to="/signup" className="links text-link">Create new Account</Link>
+                </form>
             </div>
-           
+
         </>
     )
 }

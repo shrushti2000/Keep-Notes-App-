@@ -1,16 +1,17 @@
-.sidebar-container{
+.sidebar-container {
     grid-area: sidebar;
     width: 30rem;
     height: 100vh;
-   
 }
-.sidebar-container-dark{
+
+.sidebar-container-dark {
     background-color: var(--dark-1);
     grid-area: sidebar;
     width: 30rem;
     height: 100vh;
 }
-.sidebar-item{
+
+.sidebar-item {
     font-size: 2rem;
     color: var(--secondary-text-color);
     padding: auto;
@@ -20,7 +21,8 @@
     border-bottom-right-radius: 20px;
     margin: 10px;
 }
-.sidebar-item-dark{
+
+.sidebar-item-dark {
     font-size: 2rem;
     color: var(--white);
     padding: auto;
@@ -31,32 +33,33 @@
     margin: 10px;
 }
 
-.sidebar-item:hover{
+.sidebar-item:hover {
     background-color: var(--primary-bg-color);
 }
 
-.links{
+.links {
     text-decoration: none;
 }
 
-.label-item{
+.label-item {
     font-size: 2rem;
     cursor: pointer;
     margin: 10px;
 }
-.label-item-dark{
+
+.label-item-dark {
     font-size: 2rem;
     cursor: pointer;
     margin: 10px;
     color: var(--grey);
 }
 
-.btn-floating-action{
+.btn-floating-action {
     cursor: pointer;
-  
+
 }
 
-.add-new-label-input{
+.add-new-label-input {
     font-size: 2rem;
     outline: none;
     border-radius: 2px;
@@ -67,6 +70,7 @@
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.btn-floating-action{
+
+.btn-floating-action {
     background-color: var(--secondary-bg-color);
 }

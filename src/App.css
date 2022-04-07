@@ -1,49 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Inter:wght@300&family=Petemoss&display=swap");
-html{
+
+html {
   font-size: 62.5%;
 }
-body{
+
+body {
   overflow-y: auto;
 }
-:root{
-  --light-grey:#DFDFDE;
-  --primary-bg-color:#F2DDC1;
-  --secondary-bg-color:#694E4E;
-  --primary-text-color:#2C3333;
-  --white:#ffffff;
-  --dark-1:#15202B;
-  --dark-2:#192734;
-  --grey-1:#889a96;
-  
+
+:root {
+  --light-grey: #DFDFDE;
+  --primary-bg-color: #F2DDC1;
+  --secondary-bg-color: #694E4E;
+  --primary-text-color: #2C3333;
+  --white: #ffffff;
+  --dark-1: #15202B;
+  --dark-2: #192734;
+  --grey-1: #889a96;
+
 }
-.flex-vt{
+
+.flex-vt {
   display: flex;
   flex-direction: column;
 }
-.flex-hz{
+
+.flex-hz {
   display: flex;
   flex-direction: row;
 }
-.jc-sa{
+
+.jc-sa {
   justify-content: space-around;
 }
-.jc-sb{
+
+.jc-sb {
   justify-content: space-between;
 }
-.main-page-container{
+
+.main-page-container {
   display: grid;
   grid-template-columns: 300px auto;
   grid-template-areas: "sidebar mainsection";
 }
-.main-section-container{
- 
+
+.main-section-container {
+
   display: flex;
   flex-direction: column;
   grid-area: mainsection;
 }
 
 @media only screen and (max-width: 600px) {
-  html{
-      font-size: 50%;
+  html {
+    font-size: 50%;
   }
 }

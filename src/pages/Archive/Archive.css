@@ -1,0 +1,6 @@
+.homepage-container-dark{
+    background-color: var(--dark-1);
+}
+.title-dark{
+    color: var(--secondary-bg-color);
+}

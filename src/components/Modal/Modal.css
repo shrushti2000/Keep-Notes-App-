@@ -1,6 +1,6 @@
 .modal-overlay {
-  
-    visibility: visible;
-  }
- 
-   
+  visibility: visible;
+}
+.pin-icon-modal:hover{
+  color: var(--black);
+}

@@ -13,7 +13,7 @@ import { ThemeContext } from '../../Context/ThemeContextProvider'
 import Toast from '../Toast/Toast'
 
 const TextEditor = () => {
-  const {theme}=useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
   const { state, dispatch } = useContext(StateContext)
   const { token } = useContext(AuthContext)
   const [title, setTitle] = useState('');
@@ -21,51 +21,51 @@ const TextEditor = () => {
   const [color, setColor] = useState('')
   const [isPinned, setIsPinned] = useState(false)
   const [label, setLabel] = useState('')
-  const [msg,setMsg]=useState('')
-  const date=getTodaysdate()
-  function getTodaysdate(){
-    const date=new Date();
-    const day=date.getDate();
-    const month=date.getMonth();
-    const year=date.getFullYear();
+  const [msg, setMsg] = useState('')
+  const date = getTodaysdate()
+  function getTodaysdate() {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth()+1;
+    const year = date.getFullYear();
     return `${day}/${month}/${year}`
   }
   const noteObj = {
-    title, desc, color, isPinned, label,date
+    title, desc, color, isPinned, label, date
   }
   const submitHandler = () => {
-   if(title!=='' && desc!=='' && color!=='' && label!==''){
-     try{
-      fetch("/api/notes", {
-        method: "POST",
-        body: JSON.stringify({ note: noteObj }),
-        headers: {
-          "authorization": token,
-          "Content-type": "application/json; charset=UTF-8"
-        }
-      })
-      .then(res=>res.json())
-      .then(data=> dispatch({ type: 'SET_NOTES', payload:data.notes }))
-     
-      setTitle('')
-      setDesc('')
-      setIsPinned(false)
-      setColor('')
-     }catch(error){
-       console.log('error')
-     }
-   }else{
-    dispatch({ type: 'SET_SHOW_TOAST', payload: !state.showtoast })
-    setMsg("Please fill all the fields!")
-   }
+    if (title !== '' && desc !== '' && color !== '' && label !== '') {
+      try {
+        fetch("/api/notes", {
+          method: "POST",
+          body: JSON.stringify({ note: noteObj }),
+          headers: {
+            "authorization": token,
+            "Content-type": "application/json; charset=UTF-8"
+          }
+        })
+          .then(res => res.json())
+          .then(data => dispatch({ type: 'SET_NOTES', payload: data.notes }))
+
+        setTitle('')
+        setDesc('')
+        setIsPinned(false)
+        setColor('')
+      } catch (error) {
+        console.log('error')
+      }
+    } else {
+      dispatch({ type: 'SET_SHOW_TOAST', payload: !state.showtoast })
+      setMsg("Please fill all the fields!")
+    }
   }
   return (
     <>
       {state.showtoast === true && <Toast msg={msg} />}
-      <div className={theme==="light"?'textEditor-container flex-vt':'textEditor-container-dark flex-vt'}>
+      <div className={theme === "light" ? 'textEditor-container flex-vt' : 'textEditor-container-dark flex-vt'}>
         <FontAwesomeIcon className="icons pin-icon" icon={faThumbTack} onClick={(e) => setIsPinned(!isPinned)} ></FontAwesomeIcon>
-        <input className={theme==="dark"?'note-title input-dark':'note-title'} value={title} type="text" placeholder='title'  onChange={(e) => setTitle(e.target.value)} />
-        <textarea className={theme==="dark" ? 'note-desc input-dark': 'note-desc'} value={desc} placeholder='enter note...' onChange={(e) => setDesc(e.target.value)}></textarea>
+        <input className={theme === "dark" ? 'note-title input-dark' : 'note-title'} value={title} type="text" placeholder='title' onChange={(e) => setTitle(e.target.value)} />
+        <textarea className={theme === "dark" ? 'note-desc input-dark' : 'note-desc'} value={desc} placeholder='enter note...' onChange={(e) => setDesc(e.target.value)}></textarea>
         <div className='textEditor-footer flex-hz jc-sb'>
           <div> <select value={label} className="labelInput" onChange={(e) => setLabel(e.target.value)}>
             {state.labels.map(opt => {

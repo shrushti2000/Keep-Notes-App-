@@ -6,10 +6,10 @@ import { ThemeContext } from '../../Context/ThemeContextProvider'
 import { useContext } from 'react'
 
 const LandingPage = () => {
-  const {theme}=useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
   return (
     <>
-      <div className={theme==="light"?'hero-section flex-hz jc-sa':'hero-section-dark flex-hz jc-sa'}>
+      <div className={theme === "light" ? 'hero-section flex-hz jc-sa' : 'hero-section-dark flex-hz jc-sa'}>
         <img src={heroImg} className="hero-img" />
         <div className='hero-text-section'>
           <p class="hero-text-primary">Meet modern Note Taking app</p>

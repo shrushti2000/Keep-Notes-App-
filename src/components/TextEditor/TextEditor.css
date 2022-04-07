@@ -5,18 +5,21 @@
   margin: 2rem;
   position: relative;
 }
-.textEditor-container-dark{
-background-color: var(--grey-1);
-width: 70rem;
+
+.textEditor-container-dark {
+  background-color: var(--grey-1);
+  width: 70rem;
   height: 20rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 2rem;
   position: relative;
-  margin:20px auto;
+  margin: 20px auto;
 }
-.input-dark{
+
+.input-dark {
   background-color: var(--grey-1);
 }
+
 .note-title {
   width: auto;
   height: 20%;
@@ -25,6 +28,7 @@ width: 70rem;
   outline: none;
   border: none;
 }
+
 .note-desc {
   height: 80%;
   width: auto;
@@ -33,19 +37,23 @@ width: 70rem;
   outline: none;
   border: none;
 }
+
 .textEditor-footer {
   height: 20%;
   padding: 10px;
 }
+
 .icons {
   font-size: 2rem;
   cursor: pointer;
   color: var(--secondary-bg-color);
   margin: 10px;
 }
+
 .icons:hover {
   opacity: 0.4;
 }
+
 .pin-icon {
   position: absolute;
   top: 5px;
@@ -54,9 +62,11 @@ width: 70rem;
   color: var(--secondary-bg-color);
   cursor: pointer;
 }
+
 .colorpalette-icon {
   position: relative;
 }
+
 .labelInput {
   font-size: 2rem;
   cursor: pointer;

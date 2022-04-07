@@ -1,25 +1,28 @@
-.page-container{
+.page-container {
     background-color: var(--white);
     width: 100vw;
     height: 100vh;
     margin: 0px;
 }
-.page-container-dark{
+
+.page-container-dark {
     background-color: var(--dark-1);
     width: 100vw;
     height: 100vh;
     margin: 0px;
 }
-.forgot-pw-text{
+
+.forgot-pw-text {
     color: var(--info-color);
     margin: 1rem;
     text-align: right;
 }
 
-::placeholder{
+::placeholder {
     color: var(--light-grey);
 }
-.form-container{
+
+.form-container {
     width: 50rem;
     margin: auto;
     padding: 1rem;
@@ -27,27 +30,28 @@
     flex-direction: column;
     flex-wrap: wrap;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-   
+
 }
-.form-container-dark{
+
+.form-container-dark {
     width: 50rem;
-    margin:  auto;
+    margin: auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
- background-color: var(--grey-1); 
+    background-color: var(--grey-1);
 }
 
-.terms-condt-checkbox{
+.terms-condt-checkbox {
     font-weight: 900;
     font-size: 1.5rem;
     margin: 1rem;
-  
+
 }
 
-.text-link{
+.text-link {
     font-size: 2rem;
     font-weight: 900;
     text-align: center;
@@ -56,6 +60,6 @@
     text-decoration: none;
 }
 
-::placeholder{
+::placeholder {
     color: (--grey);
 }
